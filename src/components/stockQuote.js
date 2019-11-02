@@ -1,17 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 
-class StockQuote extends Component {
-	render() {
-		return (
+const stockQuote = (props) =>{
+    return (
+        <div>
             <div>
-                <div>
-                    <img src={this.props.stockImg}/>
-                </div>
-                <div>Symbol: {this.props.symbol}</div>
-                <div>Price Open: {this.props.openPrice}</div>
-                <div>Price Close: {this.props.closePrice}</div>
+                <img src={props.stockImg}/>
             </div>
-        )
-	}
+            <div>Symbol: {props.symbol}</div>
+            <div>Price Open: {props.openPrice}</div>
+            <div>Price Close: {props.closePrice}</div>
+        </div>
+    )
 }
-export default StockQuote;
+export default stockQuote;
