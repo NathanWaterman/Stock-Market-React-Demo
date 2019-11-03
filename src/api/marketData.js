@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_TOKEN = "pk_7922aebf3fde43d69bdc26b11d7bf57e";
+const API_TOKEN = "";
 
 const api = axios.create({
 	baseURL: "https://cloud.iexapis.com"

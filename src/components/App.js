@@ -18,10 +18,10 @@ class App extends Component {
 	}
 
 	onTermSubmit = term => {
-		console.log(term);
-
-		//on submit match symbol or companyName
-		//EX: "symbol":"FB","companyName":"Facebook"
+    console.log(term);
+    
+    //on submit match symbol or companyName
+    //EX: "symbol":"FB","companyName":"Facebook"
 
 		this.setState({
 			searchTerm: term

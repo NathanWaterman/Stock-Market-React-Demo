@@ -8,10 +8,11 @@ class SearchBar extends Component {
 	};
 
 	onFormSubmit = e => {
-        e.preventDefault();
-        
-        //TODO: callback from parent component
-        this.props.onFormSubmit(this.state.term);
+		//form removed
+		e.preventDefault();
+
+		//TODO: callback from parent component
+		this.props.onFormSubmit(this.state.term);
 	};
 
 	render() {
@@ -27,7 +28,7 @@ class SearchBar extends Component {
 						/>
 					</div>
 				</div>
-                <button onClick={this.onFormSubmit}>Find Stock Quote</button>
+				<button onClick={this.onFormSubmit}>Find Stock Quote</button>
 			</div>
 		);
 	}
