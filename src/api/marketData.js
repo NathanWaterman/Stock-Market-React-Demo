@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_TOKEN = "";
+const API_TOKEN = window.ACCESS_TOKEN;
 
 const api = axios.create({
 	baseURL: "https://cloud.iexapis.com"

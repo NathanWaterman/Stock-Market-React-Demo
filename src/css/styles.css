@@ -1,0 +1,15 @@
+/*SEGMENT UI OVERRIDE*/
+
+/* UI GRID OVERRIDE*/
+/* .ui div.eight{
+    padding: 2rem !important;
+} */
+
+/* LOADING OVERRIDE */
+.loading-view{
+    height:100vh;
+}
+/* SEARCH BAR OVERRIDE */
+.search-bar div{
+    width:100%;
+}

@@ -1,14 +1,27 @@
 import React from "react";
 
 const stockQuote = (props) =>{
+
+    const { quoteData, stockImg } = props;
+
     return (
-        <div>
-            <div>
-                <img src={props.stockImg}/>
+        <div className="ui fluid card">
+            <div className="content">
+                <div className="header">
+                    <div className="ui two column grid">
+                        <div className="six wide column">
+                            <img src={stockImg}/>
+                        </div>
+                        <div className="eight wide column">
+                            <p>{quoteData.companyName}</p>
+                        </div>
+                    </div>
+                </div>
+                <div>Week 52 High: 1234</div>
+                <div>Week 52 Low: 1234</div>
+                <div>Price Close: {quoteData.close}</div>
+                <div>Exchange: Exchange</div>
             </div>
-            <div>Symbol: {props.symbol}</div>
-            <div>Price Open: {props.openPrice}</div>
-            <div>Price Close: {props.closePrice}</div>
         </div>
     )
 }

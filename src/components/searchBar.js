@@ -3,8 +3,9 @@ import React, { Component } from "react";
 class SearchBar extends Component {
 	state = { term: "" };
 
-	onInputChange = e => {
-		this.setState({ term: e.target.value });
+	onInputChange = async e => {
+		await this.setState({ term: e.target.value });
+		console.log(this.state.term);
 	};
 
 	onFormSubmit = e => {
@@ -18,17 +19,15 @@ class SearchBar extends Component {
 	render() {
 		return (
 			<div className="search-bar ui segment">
-				<div className="ui form">
-					<div className="field">
-						<label>Search for Stock Information</label>
+				<div className="ui large action input sixteen wide column">
 						<input
 							type="text"
 							value={this.state.term}
 							onChange={this.onInputChange}
+							placeholder="Search for Stock Information..."
 						/>
-					</div>
+						<button className="ui button" onClick={this.onFormSubmit}>Find Stock Quote</button>
 				</div>
-				<button onClick={this.onFormSubmit}>Find Stock Quote</button>
 			</div>
 		);
 	}

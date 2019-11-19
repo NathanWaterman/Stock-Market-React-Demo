@@ -2,35 +2,37 @@ import React, { Component } from "react";
 import { stockInfo, stockLogo, stockNews, stockChart } from "../api/marketData";
 import StockQuote from "./stockQuote";
 import SearchBar from "./searchBar";
+import StockNews from "./stockNews";
+import ErrorUI from "./error";
 
 class App extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			stockImg: "",
-			symbol: "",
-			openPrice: "",
-			closePrice: "",
-			searchTerm: "fb",
-			isLoading: true
-		};
-	}
-
-	onTermSubmit = term => {
-    console.log(term);
-    
-    //on submit match symbol or companyName
-    //EX: "symbol":"FB","companyName":"Facebook"
-
-		this.setState({
-			searchTerm: term
-		});
+	state = {
+		quoteData: "",
+		stockImg: "",
+		symbol: "",
+		openPrice: "",
+		closePrice: "",
+		searchTerm: "mdb",
+		isLoading: true,
+		isError: false
 	};
 
+	onTermSubmit = async term => {
+		//on submit match symbol or companyName
+		//EX: "symbol":"FB","companyName":"Facebook"
+		await this.setState({
+			searchTerm: term
+		});
+		this.loadStockData();
+	};
+
+	removeErr = updateErr =>{
+		this.setState({isError: updateErr});
+	}
+
 	/* MOVE INTO OWN COMPONENT AND PASS PROPS */
-	loadStockData = () => {
-		stockLogo(this.state.searchTerm)
+	loadStockData = async () => {
+		await stockLogo(this.state.searchTerm)
 			.then(res => {
 				this.setState({
 					stockImg: res.data.url,
@@ -39,46 +41,60 @@ class App extends Component {
 			})
 			.catch(err => err);
 
-		stockInfo(this.state.searchTerm)
+		await stockInfo(this.state.searchTerm)
 			.then(res => {
 				this.setState({
-					symbol: res.data.symbol,
-					openPrice: res.data.open,
-					closePrice: res.data.close,
-					isLoading: false
+					quoteData: res.data,
+					isError: false
 				});
 			})
-			.catch(err => err);
+			.catch(err => {
+				this.setState({isError: true});
+				return err
+			});
 	};
 
 	componentDidMount() {
 		this.loadStockData();
-	}
-	componentWillUpdate() {
-		this.loadStockData();
+		if(!this.state.quoteData){
+			this.setState({	isLoading: false });
+		}
 	}
 
 	render() {
 		if (this.state.isLoading) {
-			return <div>Loading...</div>;
-		} else if (!this.state.isLoading) {
 			return (
 				<div>
-					<div className="ui grid">
-						<div className="twelve wide column">
+					<div className="ui segment loading-view">
+						<div className="ui active dimmer">
+							<div className="ui massive text loader">Loading</div>
+						</div>
+						<p></p>
+						<p></p>
+						<p></p>
+					</div>
+				</div>
+			);
+		}
+		 else if (!this.state.isLoading) {
+			return (
+				<div className="sixteen wide column">
+					{this.state.isError ? <ErrorUI removeErr={this.removeErr}/> : ''}
+					<div className="ui two column grid">
+						<div className="sixteen wide column">
 							<SearchBar onFormSubmit={this.onTermSubmit} />
 						</div>
-						<div className="six wide column">
+						<div className="eight wide column">
 							<StockQuote
 								onChange={this.onTermSubmit}
+								quoteData={this.state.quoteData}
 								stockImg={this.state.stockImg}
-								symbol={this.state.symbol}
-								openPrice={this.state.openPrice}
-								closePrice={this.state.closePrice}
 							/>
 						</div>
-						<div className="six wide column">Stock Chart</div>
-						<div className="six wide column">Stock News</div>
+						<div className="eight wide column">
+							<StockNews/>
+						</div>
+						<div className="sixteen wide column">Stock Chart</div>
 					</div>
 				</div>
 			);
