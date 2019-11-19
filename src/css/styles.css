@@ -1,4 +1,28 @@
+/* GLOBAL STYLES */
+body,html{
+    margin:0;
+    padding:0;
+    height:100%;
+    width:100%;
+    background-color:#D9D9D9;
+}
+.high{
+    color: green;
+    font-weight:700;
+}
+.low{
+    color: red;
+    font-weight:700;
+}
+
 /*SEGMENT UI OVERRIDE*/
+.ui.grid>.row{
+    padding-left:1rem;
+    padding-right:1rem;
+}
+.quote-info .content:last-child .row{
+    padding:0.25rem;
+}
 
 /* UI GRID OVERRIDE*/
 /* .ui div.eight{
@@ -12,4 +36,106 @@
 /* SEARCH BAR OVERRIDE */
 .search-bar div{
     width:100%;
+}
+
+
+/* D3 Chart Styles */
+.lineChartSvg{
+    /* padding:20px; */
+}
+
+.tooltip {	
+    position: absolute;
+    /* top:5px !important;
+    left:5px !important;		 */
+    text-align: center;			
+    width: 125px;					
+    height: 150px;									
+    fill: #fff;
+    stroke:lightsteelblue;
+    stroke-width: 0.1em;
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    opacity:0.8;
+    
+}
+
+.line-group{
+    cursor: crosshair;
+}
+
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.tick line{
+    stroke: lightsteelblue;
+    opacity:0.5;
+}
+.tick text{
+    fill:black;
+}
+
+.bottom .tick text{
+    transform: translate(-1%, 4%) rotate(-75deg);
+}
+
+
+.y1,.y2,.y3,.y4,.y5,.y6,.y7{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:0.8em;
+    width:125px;
+    height:25px;
+}
+.y1 span,.y2 span,.y3 span,.y4 span,.y5 span,.y6 span,.y7 span{
+    color:#6d757e;
+}
+.y1 span:last-child{
+    margin-left:29px;
+    color: #464e56;
+    font-weight: 700;
+}
+.y2 span:last-child{
+    margin-left:24px;
+    color: #464e56;
+    font-weight: 700;
+}
+.y3 span:last-child{
+    margin-left:29px;
+    color: #464e56;
+    font-weight: 700;
+}
+.y4 span:last-child{
+    margin-left:32px;
+    color: #464e56;
+    font-weight: 700;
+}
+.y5 span:last-child{
+    margin-left:23px;
+    color: #464e56;
+    font-weight: 700;
+}
+.y6 span:last-child{
+    margin-left:14px;
+    color: #464e56;
+    font-weight: 700;
+}
+.y7 span:last-child{
+    margin-left:5px;
+    color: #464e56;
+    font-weight: 700;
 }

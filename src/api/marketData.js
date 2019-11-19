@@ -16,19 +16,10 @@ export const stockLogo = async symbol => {
 };
 //stock news
 export const stockNews = async symbol => {
-	return await api
-		.get(`/stable/stock/${symbol}/news?token=${API_TOKEN}`)
-		.then(response => {
-			// console.log(response);
-		})
-		.catch(err => console.log(err));
+	return await api.get(`/stable/stock/${symbol}/news?token=${API_TOKEN}`);
 };
 //stock chart
 export const stockChart = async symbol => {
-	return await api
-		.get(`/stable/stock/${symbol}/chart?token=${API_TOKEN}`)
-		.then(response => {
-			// console.log(response);
-		})
-		.catch(err => console.log(err));
+	return await api.get(`/stable/stock/${symbol}/chart?token=${API_TOKEN}`);
+		
 };
