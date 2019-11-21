@@ -5,6 +5,7 @@ import { line } from 'd3-shape';
 import { extent } from 'd3-array';
 import { transition } from 'd3-transition';
 import * as d3 from 'd3';
+import StockList from './stockList';
 
 class StockChart extends Component {
     constructor(props) {
@@ -17,7 +18,6 @@ class StockChart extends Component {
     render() {
 
         console.log(this.props)
-        console.log(this.state);
 
         const { data } = this.props;
 
@@ -50,16 +50,25 @@ class StockChart extends Component {
 
         return (
             <div>
-                <svg
-                    className="lineChartSvg"
-                    width={width + margin.left + margin.right}
-                    height={height + margin.top + margin.bottom}
-                >
-                    <g transform={`translate(${margins.left + 30}, ${margins.top})`}>
-                        <XYAxis {...{ xScale, yScale, height, ticks, t }} />
-                        <Line data={data} xScale={xScale} yScale={yScale} lineGenerator={lineGenerator} width={width} height={height} />
-                    </g>
-                </svg>
+                <div className="sixteen wide column">
+                    <div className="ui grid">
+                        <div className="eight wide column">
+                            <svg
+                                className="lineChartSvg"
+                                width={width + margin.left + margin.right}
+                                height={height + margin.top + margin.bottom}
+                            >
+                                <g transform={`translate(${margins.left + 30}, ${margins.top})`}>
+                                    <XYAxis {...{ xScale, yScale, height, ticks, t }} />
+                                    <Line data={data} xScale={xScale} yScale={yScale} lineGenerator={lineGenerator} width={width} height={height} />
+                                </g>
+                            </svg>
+                        </div>
+                        <div className="eight wide column">
+                            <StockList chartListData={data}/>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

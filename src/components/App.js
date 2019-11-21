@@ -38,7 +38,8 @@ class App extends Component {
 			.then(res => {
 				this.setState({
 					quoteData: res.data,
-					isError: false
+					isError: false,
+					isLoading: false
 				});
 			})
 			.catch(err => {
@@ -50,44 +51,51 @@ class App extends Component {
 			.then(res => {
 				this.setState({
 					stockImg: res.data.url,
-					// isLoading: false
+					isLoading: false
 				});
 			})
 			.catch(err => err);
 		//load stock news
 		await stockNews(this.state.searchTerm)
 			.then(res => {
-				this.setState({ newsData: res.data });
+				this.setState({ 
+					newsData: res.data,
+					// isLoading: false
+				 });
 			})
 			.catch(err => err);
 		//load stock chart range data
 		await stockChart(this.state.searchTerm)
 			.then(res => {
 				console.log(res.data);
-				this.setState({ chartData: res.data });
+				this.setState({ 
+					chartData: res.data,
+					isLoading: false
+				 });
 			})
 			.catch(err => err);
 	};
 
 	componentDidMount() {
 		this.loadStockData();
-		if (!this.state.quoteData) {
-			this.setState({ isLoading: false });
-		}
 	}
 
 	//render news list when the data is available - UNDEFINED CHECK
 	renderNewsList = () => {
-		if (this.state.newsData) {
-			return this.state.newsData.map((item, index) => (
-				<StockNews key={index} post={item} />
-			))
+		if (this.state.newsData !== 0) {
+			return <StockNews data={this.state.newsData} />
+		}
+		else{
+			return <h3 className="no-news">There is no Available News</h3>
 		}
 	}
 	//render chart list data if length is not zero load data adn render component
 	renderChartData = () => {
-		if (this.state.chartData.length != 0) {
+		if (this.state.chartData.length !== 0) {
 			return <StockChart data={this.state.chartData}/>
+		}
+		else{
+			return <h3 className="no-chart">There is no Available Stock Chart</h3>
 		}
 	}
 
@@ -115,8 +123,8 @@ class App extends Component {
 							<SearchBar onFormSubmit={this.onTermSubmit} />
 						</div>
 					</div>
-					<div className="sixteen wide stretched column">
-						<div className="ui equal height grid">
+					<div className="sixteen wide column">
+						<div className="ui grid">
 							<div className="eight wide column">
 								<StockQuote
 									onChange={this.onTermSubmit}
@@ -125,10 +133,14 @@ class App extends Component {
 								/>
 							</div>
 							<div className="eight wide column">
-								{/* {this.renderNewsList()} */}
+								<div className="news-container ui fluid card">
+									{this.renderNewsList()}
+								</div>
 							</div>
-							<div className="sixteen wide orange column">
-								{this.renderChartData()}
+							<div className="sixteen wide column">
+								<div className="chart-container ui fluid card">
+									{this.renderChartData()}
+								</div>
 							</div>
 						</div>
 					</div>

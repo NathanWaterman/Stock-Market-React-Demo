@@ -20,14 +20,59 @@ body,html{
     padding-left:1rem;
     padding-right:1rem;
 }
+.quote-info{
+    height: 100%;
+}
 .quote-info .content:last-child .row{
     padding:0.25rem;
 }
 
-/* UI GRID OVERRIDE*/
-/* .ui div.eight{
-    padding: 2rem !important;
-} */
+.news-container{
+    height: 100%;
+    max-height:100%;
+    overflow:hidden;
+}
+.news-container .no-news{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.news-container .news-list-container{
+    /* height:35%;
+    max-height:100%;
+    overflow-x:hidden;
+    overflow-y:scroll; */
+    position:relative;
+}
+.news-container .news-list-container >.item a.header, .ui.list>.item a.header{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width:96%;
+}
+.news-container .news-list-container>.item .description{
+    padding-top:1%;
+    font-weight:bold;
+}
+.news-container .news-list-container>.item>img.image+.content, .ui.list>.item>img.image+.content{
+    width:95%;
+}
+.news-container .news-list-container > .item{
+    padding: 1em 1em !important;
+}
+.news-container .news-list-container button{
+    position:sticky;
+    bottom:0;
+    left:0;
+    right:0;
+    width:100%;
+    margin-top:3% !important;
+
+    border-top-left-radius:0px;
+    border-top-right-radius: 0px;
+}
 
 /* LOADING OVERRIDE */
 .loading-view{
@@ -42,6 +87,14 @@ body,html{
 /* D3 Chart Styles */
 .lineChartSvg{
     /* padding:20px; */
+}
+
+.chart-container .no-chart{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .tooltip {	
