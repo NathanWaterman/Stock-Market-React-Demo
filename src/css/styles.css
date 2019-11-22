@@ -4,25 +4,104 @@ body,html{
     padding:0;
     height:100%;
     width:100%;
-    background-color:#D9D9D9;
+    background-color:#3f4143;
+}
+h1,h2,h3,h4,h5,p{
+    font-weight: 200;
+}
+h1{
+    font-size: 3rem;
 }
 .high{
-    color: green;
+    color: #2ab75f !important;
     font-weight:700;
 }
 .low{
-    color: red;
+    color: #f79391 !important;
     font-weight:700;
 }
 
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    
+    border-bottom: 10px solid #2ab75f;
+    float: left;
+    margin-right: 6px;
+    position: relative;
+    top: 4px;
+  }
+  
+  .arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    
+    border-top: 10px solid #f79391;
+    float: left;
+    margin-right: 6px;
+    position: relative;
+    top: 4px;
+  }
+
 /*SEGMENT UI OVERRIDE*/
+.ui.column.grid>[class*="three wide"].column, .ui.grid>.column.row>[class*="three wide"].column, .ui.grid>.row>[class*="three wide"].column, .ui.grid>[class*="three wide"].column{
+    width: 19.75%!important;
+}
+.ui.input,.ui.input>input{
+    color:#13d5b0;
+}
+.ui.input.focus>input, .ui.input>input:focus{
+    color:#13d5b0;
+}
+.ui.list .list>.item a.header:hover, .ui.list>.item a.header:hover{
+    color:#12b596 !important;
+}
+.ui.card, .ui.cards>.card{
+    background:#1b1c1d;
+    box-shadow:0 1px 3px 0 #1b1c1d, 0 0 0 1px #1b1c1d;
+}
 .ui.grid>.row{
     padding-left:1rem;
     padding-right:1rem;
 }
+.ui.list .list>.item .description, .ui.list>.item .description{
+    color: #cecece;
+    font-weight: 500 !important;
+    line-height: 1.25em;
+}
+.ui.table{
+    color: #cecece;
+}
+/**/
+
 .quote-info{
     height: 100%;
 }
+.quote-info h4, .quote-info h1{
+    color:#13d5b0;
+}
+.quote-info p{
+    color: #cecece;
+}
+.quote-info h4{
+    font-size: 1.3em;
+}
+.ui.quote-info .content img{
+    max-width:45%;
+    margin-bottom:6%;
+}
+
+.company-name{
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 3rem;
+}
+
 .quote-info .content:last-child .row{
     padding:0.25rem;
 }
@@ -32,12 +111,19 @@ body,html{
     max-height:100%;
     overflow:hidden;
 }
+.news-container p{
+    margin:0;
+    color:rgba(255, 255, 255, 0.3);
+    font-size:0.75em;
+}
 .news-container .no-news{
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color:#13d5b0;
+    font-size:2em;
 }
 .news-container .news-list-container{
     /* height:35%;
@@ -51,6 +137,9 @@ body,html{
     overflow: hidden;
     text-overflow: ellipsis;
     width:96%;
+    color:#13d5b0 !important;
+    font-weight:500;
+    font-size:1.25em;
 }
 .news-container .news-list-container>.item .description{
     padding-top:1%;
@@ -69,6 +158,8 @@ body,html{
     right:0;
     width:100%;
     margin-top:3% !important;
+    background-color:#13d5b0 !important;
+    color:black !important;
 
     border-top-left-radius:0px;
     border-top-right-radius: 0px;
@@ -79,8 +170,18 @@ body,html{
     height:100vh;
 }
 /* SEARCH BAR OVERRIDE */
+.search-bar{
+    background:#1b1c1d !important;
+}
 .search-bar div{
     width:100%;
+}
+.search-bar input{
+    background:#3f4143 !important;
+    color: #13d5b0;
+}
+.search-bar button{
+    background-color:#13d5b0 !important;
 }
 
 
@@ -95,6 +196,33 @@ body,html{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.chart-list-container{
+    position: relative;
+}
+.chart-list-container .table{
+    background:#1b1c1d !important;
+    padding:2%;
+}
+.chart-list-container .table tr td{
+    border-bottom: 1px solid rgba(168, 239, 225, 0.2);
+}
+.chart-list-container .ui.table thead th{
+    background:#1b1c1d !important;
+    color: #13d5b0;
+    font-size:1.2em;
+}
+.chart-list-container button{
+    position: absolute;
+    bottom: -2%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin-top: 3% !important;
+    background-color: #13d5b0 !important;
+    color: black !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
 }
 
 .tooltip {	
@@ -122,7 +250,7 @@ body,html{
 }
 
 path { 
-    stroke: steelblue;
+    stroke: #13d5b0;
     stroke-width: 2;
     fill: none;
 }
@@ -136,11 +264,11 @@ path {
 }
 
 .tick line{
-    stroke: lightsteelblue;
+    stroke: #a8efe1;
     opacity:0.5;
 }
 .tick text{
-    fill:black;
+    fill:#13d5b0;
 }
 
 .bottom .tick text{

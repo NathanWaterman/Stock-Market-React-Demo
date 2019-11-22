@@ -12,42 +12,42 @@ const stockQuote = (props) =>{
                         <div className="six wide column">
                             <img src={stockImg}/>
                         </div>
-                        <div className="eight wide column">
-                            <p>{quoteData.companyName}</p>
+                        <div className="eight wide column company-name">
+                            <h1>{quoteData.companyName}</h1>
                         </div>
                     </div>
                 </div>
                 <div className="ui two column grid">
                     <div className="row">
-                        <div className="four wide column">
-                            <h4>Price Close:</h4>
+                        <div className="three wide column">
+                            <h4>Price Close</h4>
                         </div>
                         <div className="eight wide column">
-                        <div>{quoteData.close}</div>
+                            <p>{quoteData.close}</p>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="four wide column">
-                            <h4>Week 52 High:</h4>
+                        <div className="three wide column">
+                            <h4>Week 52 High</h4>
                         </div>
                         <div className="eight wide column">
-                            <div className="high">{quoteData.week52High}</div>
+                            <p className="high">{quoteData.week52High}</p>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="four wide column">
-                            <h4>Week 52 Low:</h4>
+                        <div className="three wide column">
+                            <h4>Week 52 Low</h4>
                         </div>
                         <div className="eight wide column">
-                        <div className="low">{quoteData.week52Low}</div>
+                            <p className="low">{quoteData.week52Low}</p>
                         </div>
                     </div>
                     <div className="row">
-                        <div className="four wide column">
-                            <h4>Exchange:</h4>
+                        <div className="three wide column">
+                            <h4>Exchange</h4>
                         </div>
                         <div className="eight wide column">
-                        <div>{quoteData.primaryExchange}</div>
+                            <p>{quoteData.primaryExchange}</p>
                         </div>
                     </div>
                 </div>

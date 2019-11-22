@@ -14,8 +14,9 @@ class Line extends Component {
 		const { lineGenerator, xScale, yScale, data } = this.props;
 
 		//map data
+		// DATE obj off by 1 day - use replace(/-/g, '\/') to fix string
 		const initialData = data.map(d => ({
-			date: new Date(d.date),
+			date: new Date(d.date.replace(/-/g, '\/')),
 			close: d.close,
 			open: d.open,
 			volume: d.volume,
@@ -49,8 +50,9 @@ class Line extends Component {
 		const { lineGenerator, xScale, yScale, data } = this.props;
 
 		//map data
+		// DATE obj off by 1 day - use replace(/-/g, '\/') to fix string
 		const initialData = data.map(d => ({
-			date: new Date(d.date),
+			date: new Date(d.date.replace(/-/g, '\/')),
 			close: d.close,
 			open: d.open,
 			volume: d.volume,
@@ -61,7 +63,7 @@ class Line extends Component {
 
 
 		const margin = { top: 30, right: 120, bottom: 30, left: 50 },
-			width = 960 - margin.left - margin.right,
+			width = 750,
 			height = 500 - margin.top - margin.bottom;
 
 		const t = transition().duration(500);
@@ -97,7 +99,7 @@ class Line extends Component {
 		// append the x line
 		focus.append("line")
 			.attr("class", "x")
-			.style("stroke", "blue")
+			.style("stroke", "#a8efe1")
 			.style("stroke-dasharray", "3,3")
 			.style("opacity", 0.5)
 			.attr("y1", 0)
@@ -106,7 +108,7 @@ class Line extends Component {
 		// append the y line
 		focus.append("line")
 			.attr("class", "y")
-			.style("stroke", "blue")
+			.style("stroke", "#a8efe1")
 			.style("stroke-dasharray", "3,3")
 			.style("opacity", 0.5)
 			.attr("x1", width)
@@ -116,7 +118,7 @@ class Line extends Component {
 		focus.append("circle")
 			.attr("class", "y")
 			.style("fill", "none")
-			.style("stroke", "blue")
+			.style("stroke", "#a8efe1")
 			.attr("r", 4);
 
 		//Date

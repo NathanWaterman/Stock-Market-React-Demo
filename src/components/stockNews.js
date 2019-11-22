@@ -30,7 +30,7 @@ class StockNews extends React.Component {
                   <img className="ui avatar image" src={list.image}/>
                   <div className="content">
                     <a className="header" href={list.url} target="_blank">{list.headline}</a>
-                        <div className="description">{list.summary}</div>
+                    <div className="description">{list.summary}</div>
                   </div>
                 </div>
             );

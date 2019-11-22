@@ -32,14 +32,13 @@ class App extends Component {
 	}
 
 	//load stock data from API
-	loadStockData = async () => {
+	loadStockData = () => {
 		//load stock info
-		await stockInfo(this.state.searchTerm)
+		stockInfo(this.state.searchTerm)
 			.then(res => {
 				this.setState({
 					quoteData: res.data,
-					isError: false,
-					isLoading: false
+					isError: false
 				});
 			})
 			.catch(err => {
@@ -47,17 +46,17 @@ class App extends Component {
 				return err;
 			});
 		//load stock logo img
-		await stockLogo(this.state.searchTerm)
+		stockLogo(this.state.searchTerm)
 			.then(res => {
 				this.setState({
-					stockImg: res.data.url,
-					isLoading: false
+					stockImg: res.data.url
 				});
 			})
 			.catch(err => err);
 		//load stock news
-		await stockNews(this.state.searchTerm)
+		stockNews(this.state.searchTerm)
 			.then(res => {
+				console.log(res.data);
 				this.setState({ 
 					newsData: res.data,
 					// isLoading: false
@@ -65,9 +64,8 @@ class App extends Component {
 			})
 			.catch(err => err);
 		//load stock chart range data
-		await stockChart(this.state.searchTerm)
+		stockChart(this.state.searchTerm)
 			.then(res => {
-				console.log(res.data);
 				this.setState({ 
 					chartData: res.data,
 					isLoading: false
@@ -78,25 +76,6 @@ class App extends Component {
 
 	componentDidMount() {
 		this.loadStockData();
-	}
-
-	//render news list when the data is available - UNDEFINED CHECK
-	renderNewsList = () => {
-		if (this.state.newsData !== 0) {
-			return <StockNews data={this.state.newsData} />
-		}
-		else{
-			return <h3 className="no-news">There is no Available News</h3>
-		}
-	}
-	//render chart list data if length is not zero load data adn render component
-	renderChartData = () => {
-		if (this.state.chartData.length !== 0) {
-			return <StockChart data={this.state.chartData}/>
-		}
-		else{
-			return <h3 className="no-chart">There is no Available Stock Chart</h3>
-		}
 	}
 
 	render() {
@@ -116,11 +95,11 @@ class App extends Component {
 		}
 		else if (!this.state.isLoading) {
 			return (
-				<div className="ui padded equal height grid">
+				<div className="ui padded grid">
 					<div className="sixteen wide column">
 						{this.state.isError ? <ErrorUI removeErr={this.removeErr} /> : ''}
 						<div className="sixteen wide column">
-							<SearchBar onFormSubmit={this.onTermSubmit} />
+							<SearchBar onSearchSubmit={this.onTermSubmit} />
 						</div>
 					</div>
 					<div className="sixteen wide column">
@@ -134,12 +113,12 @@ class App extends Component {
 							</div>
 							<div className="eight wide column">
 								<div className="news-container ui fluid card">
-									{this.renderNewsList()}
+									{this.state.newsData !== 0 ? <StockNews data={this.state.newsData} /> : <h3 className="no-news">There is no Available News</h3>}
 								</div>
 							</div>
 							<div className="sixteen wide column">
 								<div className="chart-container ui fluid card">
-									{this.renderChartData()}
+									{this.state.chartData.length !== 0 ? <StockChart data={this.state.chartData}/> : <h3 className="no-chart">There is no Available Stock Chart</h3>}
 								</div>
 							</div>
 						</div>

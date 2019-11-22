@@ -5,15 +5,10 @@ class SearchBar extends Component {
 
 	onInputChange = async e => {
 		await this.setState({ term: e.target.value });
-		console.log(this.state.term);
 	};
 
-	onFormSubmit = e => {
-		//form removed
-		e.preventDefault();
-
-		//TODO: callback from parent component
-		this.props.onFormSubmit(this.state.term);
+	onSearchSubmit = () => {
+		this.props.onSearchSubmit(this.state.term);
 	};
 
 	render() {
@@ -26,7 +21,7 @@ class SearchBar extends Component {
 							onChange={this.onInputChange}
 							placeholder="Search for Stock Information..."
 						/>
-						<button className="ui button" onClick={this.onFormSubmit}>Find Stock Quote</button>
+						<button className="ui button" onClick={this.onSearchSubmit}>Find Stock Quote</button>
 				</div>
 			</div>
 		);

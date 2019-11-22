@@ -17,11 +17,7 @@ class StockChart extends Component {
 
     render() {
 
-        console.log(this.props)
-
         const { data } = this.props;
-
-        const parentWidth = 500;
 
         const margins = {
             top: 20,
@@ -32,7 +28,7 @@ class StockChart extends Component {
 
 
         const margin = { top: 30, right: 120, bottom: 30, left: 50 },
-            width = 960 - margin.left - margin.right,
+            width = 750,
             height = 500 - margin.top - margin.bottom
 
         const ticks = 5;
@@ -40,7 +36,7 @@ class StockChart extends Component {
 
 
         // Set the ranges
-        const xScale = d3.scaleTime().domain(extent(data, d => new Date(d.date))).range([0, width]).nice();
+        const xScale = d3.scaleTime().domain(extent(data, d => new Date(d.date.replace(/-/g, '\/')))).range([0, width]).nice();
         const yScale = d3.scaleLinear().domain(extent(data, d => d.close)).range([height, 0]).nice();
 
         const lineGenerator = line()
@@ -55,10 +51,10 @@ class StockChart extends Component {
                         <div className="eight wide column">
                             <svg
                                 className="lineChartSvg"
-                                width={width + margin.left + margin.right}
+                                width={width}
                                 height={height + margin.top + margin.bottom}
                             >
-                                <g transform={`translate(${margins.left + 30}, ${margins.top})`}>
+                                <g transform={`translate(30, ${margins.top})`}>
                                     <XYAxis {...{ xScale, yScale, height, ticks, t }} />
                                     <Line data={data} xScale={xScale} yScale={yScale} lineGenerator={lineGenerator} width={width} height={height} />
                                 </g>
