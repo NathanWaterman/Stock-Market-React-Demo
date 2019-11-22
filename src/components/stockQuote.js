@@ -1,6 +1,6 @@
 import React from "react";
 
-const stockQuote = (props) =>{
+const stockQuote = (props) => {
 
     const { quoteData, stockImg } = props;
 
@@ -10,7 +10,7 @@ const stockQuote = (props) =>{
                 <div className="header">
                     <div className="ui two column grid">
                         <div className="six wide column">
-                            <img src={stockImg}/>
+                            <img src={stockImg} />
                         </div>
                         <div className="eight wide column company-name">
                             <h1>{quoteData.companyName}</h1>

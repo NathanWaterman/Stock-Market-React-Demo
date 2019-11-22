@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
 class errorUI extends Component {
-	state = { closeErr: false };
+    state = { closeErr: false };
 
     ErrClose = () => {
-		this.props.removeErr(this.state.closeErr);
-	};
+        this.props.removeErr(this.state.closeErr);
+    };
 
-    render(){
+    render() {
         return (
             <div className="ui error message">
                 <i onClick={this.ErrClose} className="close icon"></i>

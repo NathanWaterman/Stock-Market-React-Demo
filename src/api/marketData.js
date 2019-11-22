@@ -21,5 +21,5 @@ export const stockNews = async symbol => {
 //stock chart
 export const stockChart = async symbol => {
 	return await api.get(`/stable/stock/${symbol}/chart?token=${API_TOKEN}`);
-		
+
 };

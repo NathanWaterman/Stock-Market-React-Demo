@@ -3,8 +3,8 @@ import { stockInfo, stockLogo, stockNews, stockChart } from "../api/marketData";
 import StockQuote from "./stockQuote";
 import SearchBar from "./searchBar";
 import StockNews from "./stockNews";
-import StockChart from "./chart/stockChart";
-import ErrorUI from "./error";
+import StockChart from "./chart/StockChart";
+import ErrorUI from "./Error";
 
 class App extends Component {
 	state = {
@@ -56,7 +56,6 @@ class App extends Component {
 		//load stock news
 		stockNews(this.state.searchTerm)
 			.then(res => {
-				console.log(res.data);
 				this.setState({ 
 					newsData: res.data,
 					// isLoading: false
@@ -66,6 +65,7 @@ class App extends Component {
 		//load stock chart range data
 		stockChart(this.state.searchTerm)
 			.then(res => {
+				console.log(res.data);
 				this.setState({ 
 					chartData: res.data,
 					isLoading: false
@@ -79,6 +79,7 @@ class App extends Component {
 	}
 
 	render() {
+
 		if (this.state.isLoading) {
 			return (
 				<div>
@@ -113,7 +114,7 @@ class App extends Component {
 							</div>
 							<div className="eight wide column">
 								<div className="news-container ui fluid card">
-									{this.state.newsData !== 0 ? <StockNews data={this.state.newsData} /> : <h3 className="no-news">There is no Available News</h3>}
+									{this.state.newsData.length !== 0 ? <StockNews data={this.state.newsData} /> : <h3 className="no-news">There is no Available News</h3>}
 								</div>
 							</div>
 							<div className="sixteen wide column">

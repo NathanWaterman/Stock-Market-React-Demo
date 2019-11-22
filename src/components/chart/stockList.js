@@ -9,19 +9,19 @@ class StockList extends Component{
         limit: 10
     };
 
-    componentWillReceiveProps(){
+    UNSAFE_componentWillReceiveProps(){
         this.setState({
             limit: 10
         });
     }
 
-  render() {
-
-    const onLoadMore = () =>  {
+    onLoadMore = () =>  {
         this.setState({
             limit: this.state.limit + 5
         });
     }
+
+  render() {
 
     const renderChartList = () =>{
         return this.props.chartListData.slice(0,this.state.limit).map((list,index, array)=>{
@@ -66,7 +66,7 @@ class StockList extends Component{
                 </tbody>
             </table>
             
-            <button className="ui secondary button" href="#" onClick={onLoadMore}>Load More</button>
+            <button className="ui secondary button" href="#" onClick={this.onLoadMore}>Load More</button>
         </div>
     );
   }

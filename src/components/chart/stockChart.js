@@ -5,15 +5,9 @@ import { line } from 'd3-shape';
 import { extent } from 'd3-array';
 import { transition } from 'd3-transition';
 import * as d3 from 'd3';
-import StockList from './stockList';
+import StockList from './StockList';
 
 class StockChart extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    componentDidMount() {
-    }
 
     render() {
 
@@ -54,14 +48,14 @@ class StockChart extends Component {
                                 width={width}
                                 height={height + margin.top + margin.bottom}
                             >
-                                <g transform={`translate(30, ${margins.top})`}>
+                                <g transform={`translate(40, ${margins.top})`}>
                                     <XYAxis {...{ xScale, yScale, height, ticks, t }} />
                                     <Line data={data} xScale={xScale} yScale={yScale} lineGenerator={lineGenerator} width={width} height={height} />
                                 </g>
                             </svg>
                         </div>
                         <div className="eight wide column">
-                            <StockList chartListData={data}/>
+                            <StockList chartListData={data} />
                         </div>
                     </div>
                 </div>
