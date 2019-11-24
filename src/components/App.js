@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { stockInfo, stockLogo, stockNews, stockChart } from "../api/marketData";
-import StockQuote from "./stockQuote";
-import SearchBar from "./searchBar";
-import StockNews from "./stockNews";
+import StockQuote from "./StockQuote";
+import SearchBar from "./SearchBar";
+import StockNews from "./StockNews";
 import StockChart from "./chart/StockChart";
 import ErrorUI from "./Error";
 
@@ -17,7 +17,8 @@ class App extends Component {
 		isError: false
 	};
 
-	//enter stock symbol and submit query
+	//enter stock symbol and sy
+	ubmit query
 	onTermSubmit = async term => {
 		//on submit match symbol or companyName
 		//EX: "symbol":"FB","companyName":"Facebook"
@@ -107,7 +108,6 @@ class App extends Component {
 						<div className="ui grid">
 							<div className="eight wide column">
 								<StockQuote
-									onChange={this.onTermSubmit}
 									quoteData={this.state.quoteData}
 									stockImg={this.state.stockImg}
 								/>

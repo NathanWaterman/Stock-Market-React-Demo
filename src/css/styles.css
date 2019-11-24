@@ -280,7 +280,7 @@ path {
 
 .tick line {
 	stroke: #a8efe1;
-	opacity: 0.5;
+	opacity: 0.1;
 }
 .tick text {
 	fill: #13d5b0;
