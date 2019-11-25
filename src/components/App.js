@@ -17,8 +17,7 @@ class App extends Component {
 		isError: false
 	};
 
-	//enter stock symbol and sy
-	ubmit query
+	//enter stock symbol and submit query
 	onTermSubmit = async term => {
 		//on submit match symbol or companyName
 		//EX: "symbol":"FB","companyName":"Facebook"
