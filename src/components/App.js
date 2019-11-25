@@ -34,7 +34,7 @@ class App extends Component {
 	//load stock data from API
 	loadStockData = () => {
 		//load stock info
-		stockInfo(this.state.searchTerm)
+		stockInfo(this.state.searchTerm, window.ACCESS_TOKEN)
 			.then(res => {
 				this.setState({
 					quoteData: res.data,
@@ -46,7 +46,7 @@ class App extends Component {
 				return err;
 			});
 		//load stock logo img
-		stockLogo(this.state.searchTerm)
+		stockLogo(this.state.searchTerm, window.ACCESS_TOKEN)
 			.then(res => {
 				this.setState({
 					stockImg: res.data.url
@@ -54,7 +54,7 @@ class App extends Component {
 			})
 			.catch(err => err);
 		//load stock news
-		stockNews(this.state.searchTerm)
+		stockNews(this.state.searchTerm, window.ACCESS_TOKEN)
 			.then(res => {
 				this.setState({ 
 					newsData: res.data,
@@ -63,7 +63,7 @@ class App extends Component {
 			})
 			.catch(err => err);
 		//load stock chart range data
-		stockChart(this.state.searchTerm)
+		stockChart(this.state.searchTerm, window.ACCESS_TOKEN)
 			.then(res => {
 				console.log(res.data);
 				this.setState({ 
