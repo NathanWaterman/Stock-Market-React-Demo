@@ -25,22 +25,3 @@ export const stockChart = async (symbol, API_TOKEN) => {
 	return await api.get(`/stable/stock/${symbol}/chart?token=${API_TOKEN}`);
 
 };
-
-
-// export const tokenError = async () ={
-//     await api.interceptors.response.use(response =>{
-//         console.log(response);
-//     });
-
-    // }, error => {
-    //     const { config, response: { status }} = error;
-    //     const originalRequest = config;
-    
-    //     if (status === 400) {
-    //         console.log(status);
-    //         return sleepRequest(1000, originalRequest);
-    //     } else {
-    //         return Promise.reject(error);
-    //     }
-    // });
-

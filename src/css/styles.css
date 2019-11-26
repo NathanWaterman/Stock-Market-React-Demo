@@ -92,6 +92,18 @@ h1 {
 }
 /**/
 
+/* LOGIN UI */
+.login-ui{
+	height:100vh;
+	align-items:center !important;
+	width:50%;
+	margin:0 auto !important;
+}
+.login-ui button{
+	background: #13d5b0 !important;
+}
+/**/
+
 .quote-info {
 	height: 100%;
 }
