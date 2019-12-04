@@ -64,7 +64,7 @@ class Line extends Component {
 
 		const margin = { top: 30, right: 120, bottom: 30, left: 50 },
 			width = 750,
-			height = 500 - margin.top - margin.bottom;
+			height = 500;
 
 		const t = transition().duration(500);
 		const line = select('.line');

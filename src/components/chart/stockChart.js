@@ -9,6 +9,16 @@ import StockList from './StockList';
 
 class StockChart extends Component {
 
+    // state = {
+	// 	chartWidth: ""
+	// };
+
+    // componentWillMount(){
+    //     // this.setState({
+    //     //     chartWidth : document.getElementById("lineChart").parentElement.clientWidth.toString()
+    //     // });
+    // }
+
     render() {
 
         const { data } = this.props;
@@ -23,10 +33,12 @@ class StockChart extends Component {
 
         const margin = { top: 30, right: 120, bottom: 30, left: 50 },
             width = 750,
-            height = 500 - margin.top - margin.bottom
+            height = 500
 
         const ticks = 5;
         const t = transition().duration(1000);
+
+        
 
 
         // Set the ranges
@@ -37,30 +49,59 @@ class StockChart extends Component {
             .x(d => xScale(d.date))
             .y(d => yScale(d.close))
 
-
         return (
-            <div>
-                <div className="sixteen wide column">
-                    <div className="ui grid">
-                        <div className="eight wide column">
-                            <svg
-                                className="lineChartSvg"
-                                width={width}
-                                height={height + margin.top + margin.bottom}
-                            >
-                                <g transform={`translate(40, ${margins.top})`}>
-                                    <XYAxis {...{ xScale, yScale, height, ticks, t }} />
-                                    <Line data={data} xScale={xScale} yScale={yScale} lineGenerator={lineGenerator} width={width} height={height} />
-                                </g>
-                            </svg>
-                        </div>
-                        <div className="eight wide column">
-                            <StockList chartListData={data} />
+            <div className="ui stackable one column grid">
+                <div className="row">
+                    <div className="column">
+                        <div className="row">
+                            <div id="chartContainer" className="column">
+                                <h2>Chart Info for {this.props.title} (1 Month)</h2>
+                                <svg
+                                    id="lineChart"
+                                    className="lineChartSvg"
+                                    viewBox="0 0 790 500"
+                                    preserveAspectRatio="xMinYMin meet"
+                                    width={width}
+                                    height={height + margin.top + margin.bottom}
+                                >
+                                    <g transform={`translate(40, ${margins.top})`}>
+                                        <XYAxis {...{ xScale, yScale, height, ticks, t }} />
+                                        <Line data={data} xScale={xScale} yScale={yScale} lineGenerator={lineGenerator} width={width} height={height} />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div className="column">
+                                <StockList chartListData={data} />
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         );
+
+        // return (
+        //     <div>
+        //         <div className="sixteen wide column">
+        //             <div className="ui grid">
+        //                 <div className="eight wide column">
+        //                     <svg
+        //                         className="lineChartSvg"
+        //                         width={width}
+        //                         height={height + margin.top + margin.bottom}
+        //                     >
+        //                         <g transform={`translate(40, ${margins.top})`}>
+        //                             <XYAxis {...{ xScale, yScale, height, ticks, t }} />
+        //                             <Line data={data} xScale={xScale} yScale={yScale} lineGenerator={lineGenerator} width={width} height={height} />
+        //                         </g>
+        //                     </svg>
+        //                 </div>
+        //                 <div className="eight wide column">
+        //                     <StockList chartListData={data} />
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     </div>
+        // );
     }
 }
 
