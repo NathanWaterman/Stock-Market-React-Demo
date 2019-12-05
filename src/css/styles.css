@@ -219,13 +219,12 @@ h1 {
 	background-color: #13d5b0 !important;
 	padding-right: 1em;
 }
-.search-bar button i{
+.search-bar button i {
 	background-color: #13d5b0 !important;
-	color:#000;
 	padding-left: 0.5em;
 	font-size: 1.2em;
-	margin:0 !important;
-	opacity:1 !important;
+	margin: 0 !important;
+	opacity: 1 !important;
 }
 
 /* D3 Chart Styles */
@@ -385,10 +384,31 @@ path {
 
 /** Responsive styles **/
 
+/** FORCE SCREEN TO STACK AT 992px **/
+@media only screen and (max-width: 992px) {
+	.ui.stackable.grid>.row>.column {
+		width: 100% !important;
+		margin: 0 0 !important;
+		box-shadow: none !important;
+		padding: 1rem 1rem !important;
+	}
+}
+
 /** global **/
 @media only screen and (max-width: 767px) {
-	.mobile-hidden{
-		display:none;
+	.mobile-hidden {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 630px) {
+	h1 {
+		font-size:7vw;
+	}
+}
+@media only screen and (max-width: 630px) {
+	h4 {
+		font-size:2.7vw !important;
 	}
 }
 
@@ -408,7 +428,6 @@ path {
 @media only screen and (max-width: 767px) {
 	.search-bar button i {
 		font-size: 1.5em;
-		padding:0em;
 	}
 }
 
@@ -420,8 +439,35 @@ path {
 }
 
 /** Chart list table component **/
-@media only screen and (max-width: 767px) {
-	.ui.table:not(.unstackable) tr{
-		display: block !important;
+@media only screen and (max-width: 991px) {
+	.ui[class*="tablet stackable"].table tr{
+		display: table !important;
+		width:100% !important;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.ui[class*="tablet stackable"].table tr{
+		width: 100% !important;
+		display: flex !important;
+		justify-content: space-between !important;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.ui[class*="tablet stackable"].table tr>th{
+		width: auto !important;
+    	display: inline-grid !important;
+	}
+}
+
+@media only screen and (max-width: 991px) {
+	.ui[class*="tablet stackable"].table tr>td{
+		font-size: 1.8vw;
+	}
+}
+@media only screen and (max-width: 650px) {
+	.ui[class*="tablet stackable"].table tr>td{
+		font-size: 2.8vw;
 	}
 }

@@ -21,7 +21,8 @@ class SearchBar extends Component {
 						onChange={this.onInputChange}
 						placeholder="Search for Stock Information..."
 					/>
-					<button className="ui button" onClick={this.onSearchSubmit}><span className="mobile-hidden">Find Stock Quote</span> <i className="chart line icon"></i></button>
+					<button className="ui button" onClick={this.onSearchSubmit}>Find Stock Quote</button>
+					{/* <button className="ui button" onClick={this.onSearchSubmit}><span className="mobile-hidden">Find Stock Quote</span><i className="chart line icon"></i></button> */}
 				</div>
 			</div>
 		);

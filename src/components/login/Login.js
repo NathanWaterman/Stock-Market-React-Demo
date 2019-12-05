@@ -16,12 +16,9 @@ class Login extends Component {
     }
     onInputChange = async e => {
         await this.setState({ login_TOKEN: e.target.value });
-        console.log(this.state.login_TOKEN);
     };
 
     loginSubmit = () => {
-        console.log(this.state.login_TOKEN);
-
         window.ACCESS_TOKEN = this.state.login_TOKEN;
 
         stockInfo("ba", window.ACCESS_TOKEN)

@@ -51,7 +51,7 @@ class StockList extends Component{
 
     return (
         <div className="ui list chart-list-container">
-            <table className="ui celled table">
+            <table className="ui tablet stackable table">
                 <thead>
                     <tr>
                         <th>Date</th>
