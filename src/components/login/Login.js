@@ -19,11 +19,14 @@ class Login extends Component {
         await this.setState({ login_TOKEN: e.target.value });
     };
 
-    loginSubmit = () => {
+    loginSubmit = e => {
+
+        e.preventDefault();
+
         window.ACCESS_TOKEN = this.state.login_TOKEN;
 
         stockInfo("ba", window.ACCESS_TOKEN)
-            .then(res => {
+            .then(() => {
                 this.setState({
                     loggedin: true,
                     isError: false
@@ -49,7 +52,7 @@ class Login extends Component {
                     <h2 className="ui teal image header">
                         <div className="content"> Please Enter Authentication Token</div>
                     </h2>
-                    <div className="ui large form">
+                    <form className="ui large form" onSubmit={this.loginSubmit}>
                         <div className="ui stacked segment">
                             <div className="field">
                                 <div className="ui left icon input">
@@ -57,9 +60,10 @@ class Login extends Component {
                                     <input type="text" onChange={this.onInputChange} />
                                 </div>
                             </div>
-                            <div className="ui fluid large teal submit button" onClick={this.loginSubmit}>Login</div>
+                            <button className="ui fluid large teal submit button" type="submit">Login</button>
+                            {/* <div className="ui fluid large teal submit button" onClick={this.loginSubmit}>Login</div> */}
                         </div>
-                    </div>
+                    </form>
                     {this.state.isError ? <LoginError removeErr={this.removeErr} /> : ''}
                 </div>
             </div>

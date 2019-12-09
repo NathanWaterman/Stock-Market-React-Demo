@@ -96,7 +96,7 @@ class App extends Component {
 		else if (!this.state.isLoading) {
 			return (
 				<div className="ui main-view">
-					<div className="ui one column grid">
+					<div className="ui stackable one column grid">
 						<div className="row">
 							<div className="column">
 								{this.state.isError ? <ErrorUI removeErr={this.removeErr} /> : ''}

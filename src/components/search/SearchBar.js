@@ -8,13 +8,14 @@ class SearchBar extends Component {
 		await this.setState({ term: e.target.value });
 	};
 
-	onSearchSubmit = () => {
+	onSearchSubmit = e => {
+		e.preventDefault();
 		this.props.onSearchSubmit(this.state.term);
 	};
 
 	render() {
 		return (
-			<div className="search-bar ui segment">
+			<form onSubmit={this.onSearchSubmit} className="search-bar ui segment">
 				<div className="ui large action input sixteen wide column">
 					<input
 						type="text"
@@ -22,9 +23,9 @@ class SearchBar extends Component {
 						onChange={this.onInputChange}
 						placeholder="Please Enter Stock Symbol..."
 					/>
-					<button className="ui button" onClick={this.onSearchSubmit}><span className="mobile-hidden">Find Stock Quote</span><i className="chart line icon"></i></button>
+					<button className="ui button" onClick={this.onSearchSubmit} type="submit"><span className="mobile-hidden">Find Stock Quote</span><i className="chart line icon"></i></button>
 				</div>
-			</div>
+			</form>
 		);
 	}
 }

@@ -94,6 +94,11 @@ h1 {
 .ui.table {
 	color: #cecece;
 }
+
+.ui.message:first-child{
+	margin-top:1em;
+}
+
 /* LOADING OVERRIDE */
 .loading-view {
 	height: 100vh;
