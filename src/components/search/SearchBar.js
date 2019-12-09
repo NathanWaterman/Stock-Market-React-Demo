@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./search.css"
 
 class SearchBar extends Component {
 	state = { term: "" };
@@ -19,10 +20,9 @@ class SearchBar extends Component {
 						type="text"
 						value={this.state.term}
 						onChange={this.onInputChange}
-						placeholder="Search for Stock Information..."
+						placeholder="Please Enter Stock Symbol..."
 					/>
-					<button className="ui button" onClick={this.onSearchSubmit}>Find Stock Quote</button>
-					{/* <button className="ui button" onClick={this.onSearchSubmit}><span className="mobile-hidden">Find Stock Quote</span><i className="chart line icon"></i></button> */}
+					<button className="ui button" onClick={this.onSearchSubmit}><span className="mobile-hidden">Find Stock Quote</span><i className="chart line icon"></i></button>
 				</div>
 			</div>
 		);

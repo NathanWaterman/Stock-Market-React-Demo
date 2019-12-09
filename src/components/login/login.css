@@ -1,0 +1,32 @@
+/* LOGIN UI */
+.login-ui {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+	width:100%
+}
+.login-ui > div{
+	width:50%;
+	text-align:center;
+	position:relative;
+	top:-8%;
+}
+.login-ui > div > .message{
+	position: absolute;
+    width: 100%;
+}
+.login-ui button {
+	background: #13d5b0 !important;
+}
+
+@media only screen and (max-width: 1200px) {
+	.login-ui > div{
+		width: 70%;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.login-ui > div{
+		width: 95%;
+	}
+}

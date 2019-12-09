@@ -1,0 +1,63 @@
+.news-container {
+	height: 100%;
+	max-height: 100%;
+	overflow: hidden;
+	margin-top: 2em !important;
+}
+.news-container p {
+	margin: 0;
+	color: rgba(255, 255, 255, 0.3);
+	font-size: 0.75em;
+}
+.news-container .no-news {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #13d5b0;
+	font-size: 2em;
+	padding: 2rem;
+}
+.news-container .news-list-container {
+	position: relative;
+}
+.news-container .news-list-container h2 {
+	color: #13d5b0;
+	padding-top: 1rem;
+	padding-left: 1rem;
+}
+.news-container .news-list-container > .item a.header,
+.ui.list > .item a.header {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 96%;
+	color: #13d5b0 !important;
+	font-weight: 500;
+	font-size: 1.25em;
+}
+.news-container .news-list-container > .item .description {
+	padding-top: 1%;
+	font-weight: bold;
+}
+.news-container .news-list-container > .item > img.image + .content,
+.ui.list > .item > img.image + .content {
+	width: 95% !important;
+}
+.news-container .news-list-container > .item {
+	padding: 1em 1em !important;
+}
+.news-container .news-list-container button {
+	position: sticky;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	margin-top: 3% !important;
+	background-color: #13d5b0 !important;
+	color: black !important;
+
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}

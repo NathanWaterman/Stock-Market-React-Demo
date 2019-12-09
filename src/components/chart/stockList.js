@@ -1,9 +1,7 @@
 import React, { Component } from "react";
+import './chart.css';
 
 class StockList extends Component{
-    constructor(props) {
-        super(props);
-    }
 
     state = {
         limit: 10
@@ -23,8 +21,10 @@ class StockList extends Component{
 
   render() {
 
+    const { chartListData } = this.props;
+
     const renderChartList = () =>{
-        return this.props.chartListData.slice(0,this.state.limit).map((list,index, array)=>{
+        return chartListData.slice(0,this.state.limit).map((list,index, array)=>{
             const len = array.length;
             const previous = array[(index+len-1)%len];
             const next = array[(index+1)%len];

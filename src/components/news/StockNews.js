@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./news.css";
 
 class StockNews extends Component {
 
@@ -28,8 +29,10 @@ class StockNews extends Component {
 
     render() {
 
+        const { data, title } = this.props;
+
         const renderNewsList = () => {
-            return this.props.data.slice(0, this.state.limit).map((list, index) => {
+            return data.slice(0, this.state.limit).map((list, index) => {
                 return (
                     <div className="item" key={index}>
                         <img className="ui avatar image" src={list.image} />
@@ -45,7 +48,7 @@ class StockNews extends Component {
 
         return (
             <div className="ui list news-list-container">
-                <h2>News About {this.props.title}</h2>
+                <h2>News About {title}</h2>
                 {renderNewsList()}
                 <button className="ui secondary button" href="#" onClick={this.onLoadMore}>Load More</button>
             </div>

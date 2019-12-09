@@ -1,0 +1,30 @@
+.quote-info {
+	height: 100%;
+	padding-bottom: 1rem !important;
+}
+.quote-info h4,
+.quote-info h1 {
+	color: #13d5b0;
+}
+.quote-info p {
+	color: #cecece;
+	font-size: 1.2em;
+}
+.quote-info h4 {
+	font-size: 1.3em;
+}
+.ui.quote-info .content img {
+	max-width: 45%;
+	margin-bottom: 6%;
+}
+
+.company-name {
+	display: flex !important;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 3rem;
+}
+
+.quote-info .content:last-child .row {
+	padding: 0.25rem;
+}

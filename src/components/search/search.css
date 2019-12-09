@@ -1,0 +1,32 @@
+/* SEARCH BAR OVERRIDE */
+.search-bar {
+	background: #1b1c1d !important;
+	margin-top: 1em !important;
+}
+.search-bar div {
+	width: 100%;
+}
+.search-bar input {
+	background: #3f4143 !important;
+	color: #13d5b0;
+}
+.search-bar button {
+	background-color: #13d5b0 !important;
+	padding-right: 1em;
+}
+.search-bar button i {
+	background-color: #13d5b0 !important;
+	padding-left: 0.5em;
+	font-size: 1.2em;
+	margin: 0 !important;
+	opacity: 1 !important;
+}
+
+@media only screen and (max-width: 767px) {
+	.search-bar button i {
+		font-size: 1.6em;
+		padding-left: 0px;
+		position: relative;
+		top: 2px;
+	}
+}

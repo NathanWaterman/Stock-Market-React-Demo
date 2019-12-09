@@ -4,6 +4,7 @@ import {
     Route
 } from 'react-router-dom';
 import { stockInfo } from "../../api/marketData";
+import './login.css';
 import LoginError from "./LoginError";
 import ValidUser from "../App";
 
@@ -43,7 +44,7 @@ class Login extends Component {
             return <Route component={ValidUser} />
         }
         else {
-            return <div className="ui middle aligned center aligned grid login-ui">
+            return <div className="login-ui">
                 <div className="column">
                     <h2 className="ui teal image header">
                         <div className="content"> Please Enter Authentication Token</div>

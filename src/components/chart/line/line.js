@@ -32,8 +32,7 @@ class Line extends Component {
 		select(node)
 			.append('path')
 			.datum(initialData)
-			.attr('class', 'line')
-			.attr('stroke', 'black')
+			.attr('class', 'line-path')
 			.attr('stroke-width', 2)
 			.attr('fill', 'none')
 			.attr('d', lineGenerator);
@@ -67,7 +66,7 @@ class Line extends Component {
 			height = 500;
 
 		const t = transition().duration(500);
-		const line = select('.line');
+		const line = select('.line-path');
 
 
 		// Parse the date / time

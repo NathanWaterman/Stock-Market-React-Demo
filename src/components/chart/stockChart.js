@@ -6,22 +6,13 @@ import { extent } from 'd3-array';
 import { transition } from 'd3-transition';
 import * as d3 from 'd3';
 import StockList from './StockList';
+import './chart.css';
 
 class StockChart extends Component {
 
-    // state = {
-	// 	chartWidth: ""
-	// };
-
-    // componentWillMount(){
-    //     // this.setState({
-    //     //     chartWidth : document.getElementById("lineChart").parentElement.clientWidth.toString()
-    //     // });
-    // }
-
     render() {
 
-        const { data } = this.props;
+        const { data, title } = this.props;
 
         const margins = {
             top: 20,
@@ -55,7 +46,7 @@ class StockChart extends Component {
                     <div className="column">
                         <div className="row">
                             <div id="chartContainer" className="column">
-                                <h2>Chart Info for {this.props.title} (1 Month)</h2>
+                                <h2>Chart Info for {title} (1 Month)</h2>
                                 <svg
                                     id="lineChart"
                                     className="lineChartSvg"
