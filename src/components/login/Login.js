@@ -74,8 +74,6 @@ class Login extends Component {
         this.isAuth();
     }
 
-
-
     render() {
         return (
             <Router>
