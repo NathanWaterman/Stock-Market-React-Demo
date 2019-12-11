@@ -101,7 +101,7 @@ class App extends Component {
 							<div className="column">
 								{this.state.isError ? <ErrorUI removeErr={this.removeErr} /> : ''}
 								<div className="sixteen wide column">
-									<SearchBar onSearchSubmit={this.onTermSubmit} />
+									<SearchBar searchTerm={this.onTermSubmit} />
 								</div>
 							</div>
 						</div>
