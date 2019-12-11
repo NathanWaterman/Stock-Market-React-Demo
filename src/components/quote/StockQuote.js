@@ -1,9 +1,7 @@
 import React from "react";
 import "./quote.css";
 
-const stockQuote = (props) => {
-
-    const { quoteData, stockImg } = props;
+const stockQuote = ({ quoteData, stockImg }) => {
 
     return (
         <div className="ui fluid card quote-info">
