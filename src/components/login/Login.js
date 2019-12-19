@@ -61,7 +61,6 @@ class Login extends Component {
                                 </div>
                             </div>
                             <button className="ui fluid large teal submit button" type="submit">Login</button>
-                            {/* <div className="ui fluid large teal submit button" onClick={this.loginSubmit}>Login</div> */}
                         </div>
                     </form>
                     {this.state.isError ? <LoginError removeErr={this.removeErr} /> : ''}
