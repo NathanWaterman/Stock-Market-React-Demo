@@ -158,6 +158,7 @@ export default App;
 // 		//EX: "symbol":"FB","companyName":"Facebook"
 // 		await setSearchTerm(term);
 // 		loadStockData();
+//		console.log(term);
 // 	};
 
 // 	const removeErr = updateErr => {
