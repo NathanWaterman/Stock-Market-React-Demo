@@ -74,7 +74,7 @@ class StockList extends Component{
 
 export default StockList;
 
-//REACT HOOK
+// //REACT HOOK
 // const StockList = ({ chartListData }) => {
 
 //     const [limit, setLimit] = useState(10);
