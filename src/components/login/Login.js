@@ -3,7 +3,6 @@ import {
     BrowserRouter as Router,
     Route
 } from 'react-router-dom';
-import MetaTags from 'react-meta-tags';
 import { stockInfo } from "../../api/marketData";
 import './login.css';
 import LoginError from "./LoginError";
@@ -48,34 +47,25 @@ class Login extends Component {
             return <Route component={ValidUser} />
         }
         else {
-            return <div className="wrapper">
-                        <MetaTags>
-                            <meta charSet="utf-8" />
-                            <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" />
-                            <meta name="theme-color" content="#000000"/>
-                            <meta name="description" content="stock market app demo"/>
-                            <title>Stock Market App</title>
-                        </MetaTags>
-                        <div className="login-ui">
-                                <div className="column">
-                                    <h2 className="ui teal image header">
-                                        <div className="content"> Please Enter Authentication Token</div>
-                                    </h2>
-                                    <form className="ui large form" onSubmit={this.loginSubmit}>
-                                        <div className="ui stacked segment">
-                                            <div className="field">
-                                                <div className="ui left icon input">
-                                                    <i className="lock icon"></i>
-                                                    <input type="text" onChange={this.onInputChange} />
-                                                </div>
-                                            </div>
-                                            <button className="ui fluid large teal submit button" type="submit">Login</button>
+            return <div className="login-ui">
+                        <div className="column">
+                            <h2 className="ui teal image header">
+                                <div className="content"> Please Enter Authentication Token</div>
+                            </h2>
+                            <form className="ui large form" onSubmit={this.loginSubmit}>
+                                <div className="ui stacked segment">
+                                    <div className="field">
+                                        <div className="ui left icon input">
+                                            <i className="lock icon"></i>
+                                            <input type="text" onChange={this.onInputChange} />
                                         </div>
-                                    </form>
-                                    {this.state.isError ? <LoginError removeErr={this.removeErr} /> : ''}
+                                    </div>
+                                    <button className="ui fluid large teal submit button" type="submit">Login</button>
                                 </div>
-                            </div>
+                            </form>
+                            {this.state.isError ? <LoginError removeErr={this.removeErr} /> : ''}
                         </div>
+                    </div>
         }
     }
 

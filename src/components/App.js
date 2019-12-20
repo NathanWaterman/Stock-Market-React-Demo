@@ -56,19 +56,19 @@ class App extends Component {
 		//load stock news
 		stockNews(this.state.searchTerm, window.ACCESS_TOKEN)
 			.then(res => {
-				this.setState({ 
+				this.setState({
 					newsData: res.data,
 					// isLoading: false
-				 });
+				});
 			})
 			.catch(err => err);
 		//load stock chart range data
 		stockChart(this.state.searchTerm, window.ACCESS_TOKEN)
 			.then(res => {
-				this.setState({ 
+				this.setState({
 					chartData: res.data,
 					isLoading: false
-				 });
+				});
 			})
 			.catch(err => err);
 	};
@@ -127,7 +127,7 @@ class App extends Component {
 								<div className="row">
 									<div className="column">
 										<div className="chart-container ui fluid card">
-											{this.state.chartData.length !== 0 ? <StockChart data={this.state.chartData} title={this.state.quoteData.companyName}/> : <h3 className="no-chart">There is no Available Stock Chart</h3>}
+											{this.state.chartData.length !== 0 ? <StockChart data={this.state.chartData} title={this.state.quoteData.companyName} /> : <h3 className="no-chart">There is no Available Stock Chart</h3>}
 										</div>
 									</div>
 								</div>
@@ -150,7 +150,7 @@ export default App;
 // 	const [quoteData, setQuoteData] = useState("");
 // 	const [isLoading, setLoading] = useState(true);
 // 	const [isError, setError] = useState(false);
-	
+
 
 // 	//enter stock symbol and submit query
 // 	const onTermSubmit = async term => {

@@ -29,7 +29,7 @@ class StockChart extends Component {
         const ticks = 5;
         const t = transition().duration(1000);
 
-        
+
 
 
         // Set the ranges

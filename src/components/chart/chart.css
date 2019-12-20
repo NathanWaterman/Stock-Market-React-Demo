@@ -36,15 +36,15 @@
 }
 .chart-list-container button {
 	position: absolute;
-	bottom: -2%;
-	left: -1.5%;
-	right: 0;
-	width: 103%;
-	margin-top: 3% !important;
-	background-color: #13d5b0 !important;
-	color: black !important;
-	border-top-left-radius: 0px !important;
-	border-top-right-radius: 0px !important;
+    bottom: -3%;
+    left: -2.5%;
+    right: 0;
+    width: 105%;
+    margin-top: 3% !important;
+    background-color: #13d5b0 !important;
+    color: black !important;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
 }
 
 .tooltip {
@@ -153,6 +153,13 @@ path {
 	font-weight: 700;
 }
 
+@media only screen and (max-width:1135px){
+	.chart-list-container button{
+		left: -3%;
+		width: 106%;
+	}
+}
+
 @media only screen and (max-width: 1200px) {
 	#chartContainer {
 		padding-left: 1rem;
@@ -177,6 +184,20 @@ path {
     .chart-list-container .ui[class*="tablet stackable"].table tr>td{
 		font-size: 1.8vw;
 	}
+
+	/** load more btn **/
+	.chart-list-container button{
+		left: -1.6%;
+		width: 103.3%;
+		bottom:-5%;
+	}
+}
+@media only screen and (max-width:900px){
+	/** load more btn **/
+	.chart-list-container button{
+		left: -1.8%;
+    	width: 103.6%;
+	}
 }
 @media only screen and (max-width: 767px) {
 	.chart-list-container .ui[class*="tablet stackable"].table tr>td>p{
@@ -185,6 +206,12 @@ path {
 	}
 	.chart-list-container .ui[class*="tablet stackable"].table tr>td> .arrow-down,.chart-list-container .ui[class*="tablet stackable"].table tr>td> .arrow-up{
 		top: -3px;
+	}
+
+	/** load more btn **/
+	.chart-list-container button{
+		left: -0.1%;
+    	width: 100.2%;
 	}
 }
 @media only screen and (max-width: 650px) {

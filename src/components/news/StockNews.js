@@ -19,13 +19,13 @@ class StockNews extends Component {
         });
     }
 
-    formatDate = (timestamp) =>{
+    formatDate = (timestamp) => {
         const newDate = new Date(timestamp);
         const dd = newDate.getDate();
-        const mm = newDate.getMonth()+1;
+        const mm = newDate.getMonth() + 1;
         const yy = newDate.getFullYear();
-        return mm +"/" + dd+"/" + yy;
-     }
+        return mm + "/" + dd + "/" + yy;
+    }
 
     render() {
 

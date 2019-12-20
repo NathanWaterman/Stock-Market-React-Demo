@@ -118,6 +118,9 @@ h1 {
 	.mobile-hidden {
 		display: none;
 	}
+	.main-view{
+		margin-bottom: 3em;
+	}
 }
 @media only screen and (max-width: 650px) {
 	.news-container .news-list-container > .item > img.image + .content, .ui.list > .item > img.image + .content{
