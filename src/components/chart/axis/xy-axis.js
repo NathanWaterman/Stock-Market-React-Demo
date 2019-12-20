@@ -13,7 +13,6 @@ const XYAxis = ({ xScale, yScale, height}) => {
     orient: 'left',
     transform: 'translate(0, 0)'
   };
-//   console.log(xSettings);
   return (
     <g className="axis-group">
       <Axis {...xSettings} />

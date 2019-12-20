@@ -120,6 +120,10 @@ class Line extends Component {
 			.style("stroke", "#a8efe1")
 			.attr("r", 4);
 
+		/*
+		* Use foreignObject to inject a html div into an svg canvas
+		*/
+
 		//Date
 		focus.append("foreignObject")
 			.attr("class", "y1")
