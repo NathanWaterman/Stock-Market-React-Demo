@@ -1,15 +1,15 @@
 ###
 //stock quote
-GET https://cloud.iexapis.com/stable/stock/ba/quote?token=pk_7922aebf3fde43d69bdc26b11d7bf57e
+GET https://cloud.iexapis.com/stable/stock/ba/quote?token=
 
 ###
 //stock logo
-GET https://cloud.iexapis.com/stable/stock/ba/logo?token=pk_7922aebf3fde43d69bdc26b11d7bf57e
+GET https://cloud.iexapis.com/stable/stock/ba/logo?token=
 
 ###
 //stock news
-GET https://cloud.iexapis.com/stable/stock/ba/news?token=pk_7922aebf3fde43d69bdc26b11d7bf57e
+GET https://cloud.iexapis.com/stable/stock/ba/news?token=
 
 ###
 //stock chart
-GET https://cloud.iexapis.com/stable/stock/ba/chart?token=pk_7922aebf3fde43d69bdc26b11d7bf57e
+GET https://cloud.iexapis.com/stable/stock/ba/chart?token=
