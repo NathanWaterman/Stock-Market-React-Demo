@@ -24,13 +24,26 @@ class StockList extends Component{
     const { chartListData } = this.props;
 
     const renderChartList = () =>{
-        return chartListData.slice(0,this.state.limit).map((list,index, array)=>{
-            const len = array.length;
-            const previous = array[(index+len-1)%len];
-            const next = array[(index+1)%len];
+        return chartListData.slice(0,this.state.limit).map((list,index, elementList)=>{
+            //BUG TODO - last item gets put at the top of the list, throwing off calculation
+            const len = elementList.length;
+            const previous = elementList[(index+len-1)%len];
+            const next = elementList[(index+1)%len];
+
+            // console.log("Current: " + list.close);
+            // if (index > 0) {
+            //     var previous = elementList[index-1].close;
+            //     console.log("Previous: " + elementList[index-1].close);  
+            // }
+            // if (index < (elementList.length - 1)) {
+            //     var next = elementList[index+1].close;
+            //     console.log("Next: " + elementList[index+1].close);
+            // }
+            
 
             const nextVal = () =>{
-                if(next.close > previous.close){
+                if(next > previous){
+                    console.log("next is higher");
                     return <td data-label="close" className="high"><div className="arrow-up"></div><p>{list.close}</p></td>
 
                 }else{
