@@ -42,8 +42,7 @@ class StockList extends Component{
             
 
             const nextVal = () =>{
-                if(next > previous){
-                    console.log("next is higher");
+                if(next.close > previous.close){
                     return <td data-label="close" className="high"><div className="arrow-up"></div><p>{list.close}</p></td>
 
                 }else{
