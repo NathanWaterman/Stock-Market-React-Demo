@@ -5,6 +5,7 @@ import SearchBar from "./search/SearchBar";
 import StockNews from "./news/StockNews";
 import StockChart from "./chart/StockChart";
 import ErrorUI from "./Error";
+import Loader from './Loader';
 
 class App extends Component {
 	state = {
@@ -81,16 +82,7 @@ class App extends Component {
 
 		if (this.state.isLoading) {
 			return (
-				<div>
-					<div className="ui segment loading-view">
-						<div className="ui active dimmer">
-							<div className="ui massive text loader">Loading</div>
-						</div>
-						<p></p>
-						<p></p>
-						<p></p>
-					</div>
-				</div>
+				<Loader/>
 			);
 		}
 		else if (!this.state.isLoading) {
