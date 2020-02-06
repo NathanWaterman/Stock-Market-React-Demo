@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import { stockInfo } from "../../api/marketData";
 import './login.css';
-import LoginError from "./LoginError";
+import ErrorUI from '../Error';
 import ValidUser from "../App";
 
 class Login extends Component {
@@ -63,7 +63,7 @@ class Login extends Component {
                                     <button className="ui fluid large teal submit button" type="submit">Login</button>
                                 </div>
                             </form>
-                            {this.state.isError ? <LoginError removeErr={this.removeErr} /> : ''}
+                            {this.state.isError ? <ErrorUI removeErr={this.removeErr} errMsg="Please Enter the Correct Authentication Token" /> : ''}
                         </div>
                     </div>
         }

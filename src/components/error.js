@@ -8,15 +8,15 @@ class ErrorUI extends Component {
     };
 
     render() {
+
+        const { errMsg } = this.props;
+
         return (
             <div className="ui error message">
                 <i onClick={this.ErrClose} className="close icon"></i>
                 <div className="header">
-                    There were some errors with your submission
+                    {errMsg}
                 </div>
-                <ul className="list">
-                    <li>You have entered the wrong Stock Quote Symbol.</li>
-                </ul>
             </div>
         )
     }
