@@ -27,29 +27,29 @@ class StockNews extends Component {
         return mm + "/" + dd + "/" + yy;
     }
 
+    renderNewsList = (data) => {
+        return data.slice(0, this.state.limit).map((list, index) => {
+            return (
+                <div className="item" key={index}>
+                    <img className="ui avatar image" src={list.image} />
+                    <div className="content">
+                        <a className="header" href={list.url} target="_blank">{list.headline}</a>
+                        <p className="four wide column">source: <i>{list.source}</i>, {this.formatDate(list.datetime)}</p>
+                        <div className="description">{list.summary}</div>
+                    </div>
+                </div>
+            );
+        });
+    };
+
     render() {
 
         const { data, title } = this.props;
 
-        const renderNewsList = () => {
-            return data.slice(0, this.state.limit).map((list, index) => {
-                return (
-                    <div className="item" key={index}>
-                        <img className="ui avatar image" src={list.image} />
-                        <div className="content">
-                            <a className="header" href={list.url} target="_blank">{list.headline}</a>
-                            <p className="four wide column">source: <i>{list.source}</i>, {this.formatDate(list.datetime)}</p>
-                            <div className="description">{list.summary}</div>
-                        </div>
-                    </div>
-                );
-            });
-        };
-
         return (
             <div className="ui list news-list-container">
                 <h2>News About {title}</h2>
-                {renderNewsList()}
+                {this.renderNewsList(data)}
                 <button className="ui secondary button" href="#" onClick={this.onLoadMore}>Load More</button>
             </div>
         );
