@@ -1,4 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 import './chart.css';
 
 class StockList extends Component {
@@ -85,6 +86,11 @@ class StockList extends Component {
 };
 
 export default StockList;
+
+//set strict type checking
+StockList.propTypes = {
+    chartListData: PropTypes.array
+}
 
 // //REACT HOOK
 // const StockList = ({ chartListData }) => {

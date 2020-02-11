@@ -1,4 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 
 class ErrorUI extends Component {
     state = { closeErr: false };
@@ -22,6 +23,11 @@ class ErrorUI extends Component {
     }
 }
 export default ErrorUI;
+
+//set strict type checking
+ErrorUI.propTypes = {
+    errMsg: PropTypes.string
+}
 
 //REACT HOOK
 // const ErrorUI = (props) =>{

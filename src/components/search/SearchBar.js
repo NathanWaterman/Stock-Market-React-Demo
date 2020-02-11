@@ -31,6 +31,8 @@ class SearchBar extends Component {
 }
 export default SearchBar;
 
+
+
 // // REACT HOOK
 // const SearchBar = ({ searchTerm }) => {
 

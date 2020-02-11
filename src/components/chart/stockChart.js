@@ -6,6 +6,7 @@ import { extent } from 'd3-array';
 import { transition } from 'd3-transition';
 import * as d3 from 'd3';
 import StockList from './StockList';
+import PropTypes from 'prop-types';
 import './chart.css';
 
 class StockChart extends Component {
@@ -69,31 +70,13 @@ class StockChart extends Component {
                 </div>
             </div>
         );
-
-        // return (
-        //     <div>
-        //         <div className="sixteen wide column">
-        //             <div className="ui grid">
-        //                 <div className="eight wide column">
-        //                     <svg
-        //                         className="lineChartSvg"
-        //                         width={width}
-        //                         height={height + margin.top + margin.bottom}
-        //                     >
-        //                         <g transform={`translate(40, ${margins.top})`}>
-        //                             <XYAxis {...{ xScale, yScale, height, ticks, t }} />
-        //                             <Line data={data} xScale={xScale} yScale={yScale} lineGenerator={lineGenerator} width={width} height={height} />
-        //                         </g>
-        //                     </svg>
-        //                 </div>
-        //                 <div className="eight wide column">
-        //                     <StockList chartListData={data} />
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        // );
     }
 }
 
 export default StockChart;
+
+//set strict type checking
+StockChart.propTypes = {
+    data: PropTypes.array,
+    title: PropTypes.string
+}

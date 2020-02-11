@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import "./quote.css";
 
-const stockQuote = ({ quoteData, stockImg }) => {
+const StockQuote = ({ quoteData, stockImg }) => {
 
     return (
         <div className="ui fluid card quote-info">
@@ -54,4 +55,10 @@ const stockQuote = ({ quoteData, stockImg }) => {
         </div>
     )
 }
-export default stockQuote;
+export default StockQuote;
+
+//set strict type checking
+StockQuote.propTypes = {
+    quoteData: PropTypes.object,
+    stockImg: PropTypes.string
+}

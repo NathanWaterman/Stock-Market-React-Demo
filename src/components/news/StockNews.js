@@ -1,4 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
+import PropTypes from 'prop-types';
 import "./news.css";
 
 class StockNews extends Component {
@@ -56,6 +57,12 @@ class StockNews extends Component {
     }
 };
 export default StockNews;
+
+//set strict type checking
+StockNews.propTypes = {
+    data: PropTypes.array,
+    title: PropTypes.string
+}
 
 
 // //REACT HOOK
